@@ -2,13 +2,13 @@
 
 int main()
 {
-    int num[3], i, max;
-    for ( i = 0; i < 3; i++)
+    float num[3] , max;
+    for ( int i = 0; i < 3; i++)
     {
-        scanf("%d",&num[i]);
+        scanf("%f",&num[i]);
     }
     max = num[0];
-    for ( i = 0; i < 3; i++)
+    for ( int i = 0; i < 3; i++)
     {
         while (num[i] > max)
         {
@@ -16,6 +16,6 @@ int main()
         }
     }
     
-    printf("%d",max);
+    printf("%.1f",max);
     return 0;
 }
