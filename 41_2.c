@@ -11,6 +11,4 @@ int main()
 int compare (int x, int y)
 {
     return ((x-y)*(x>y))+y;
-    // 1-2 * 0 + 2 = 1
-    // 2-1 * 1 + 1 = 2
 }
