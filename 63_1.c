@@ -1,21 +1,27 @@
 /*
-64010965 อนาวิล ธรรมเจริญทิพย์
+6401965 อนาวิล ธรรมเจริญทิพย์
 จงเขียนโปรแกรม Copy ไฟล์ข้อมูลโดยให้นักศึกษาป้อนข้อมูลของไฟล์ต้นทาง และข้อมูลไฟล์ปลายทาง (Level 4)
 */
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdbool.h>
-
 int main()
 {
-    char t[1000];
-    FILE *f =fopen("c:\\temp\\data1.txt", "w");
-    scanf("%s",&t);
-    fprintf(f,"%s",t);
-    fclose(f);
-    FILE *ff =fopen("c:\\temp\\data2.txt", "w");
-    fprintf(ff,"%s",t);
-    fclose(ff);
+    char input [100], content[1000];
+    printf("Input : ");
+    scanf("%[^\n]",input); //ที่อยู่ไฟล์
+    FILE *inputFile =fopen(input, "r");
+    if (inputFile == NULL)
+    {
+        printf("There is no such file.");
+        return 0;
+    }
+    printf("Output : ");
+    scanf(" %[^\n]",input);
+    FILE *outputFile =fopen(input, "w");
+    while(!feof(inputFile))
+    {
+        fgets(content,1000,inputFile);
+        fprintf(outputFile,"%s",content);
+    }
+    _fcloseall();
     return 0;
 }
